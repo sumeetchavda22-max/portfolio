@@ -11,11 +11,11 @@ export const profile = {
   phone: "+91 9687973140",
   phoneHref: "tel:+919687973140",
   linkedin: "https://www.linkedin.com/in/sumit-chavda-9b73aa267",
-  github: "https://github.com/sumit-chavda22",
+  github: "https://github.com/sumeetchavda22-max",
   cvPath: `${basePath}/Sumit_Chavda_CV_2026.pdf`,
   cvFileName: "Sumit_Chavda_CV_2026.pdf",
   availability: "Available for infrastructure & security opportunities",
-  siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "https://sumit-chavda22.github.io",
+  siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "https://sumeetchavda22-max.github.io/portfolio",
 } as const;
 
 export const navLinks = [

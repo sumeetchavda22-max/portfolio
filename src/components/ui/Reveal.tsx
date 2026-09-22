@@ -1,6 +1,7 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
+import { useReducedMotionSafe } from "@/lib/useReducedMotionSafe";
 import { cn } from "@/lib/utils";
 
 type RevealProps = {
@@ -14,7 +15,7 @@ type RevealProps = {
 
 /** Scroll-triggered fade/slide reveal. Renders static when reduced motion is set. */
 export function Reveal({ children, className, delay = 0, y = 24, once = true, as = "div" }: RevealProps) {
-  const reduce = useReducedMotion();
+  const reduce = useReducedMotionSafe();
   const Comp = motion[as];
 
   return (

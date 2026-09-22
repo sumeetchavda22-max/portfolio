@@ -1,6 +1,7 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
+import { useReducedMotionSafe } from "@/lib/useReducedMotionSafe";
 import { Cpu, Radar, Server, ShieldCheck, Workflow, Layers } from "lucide-react";
 import { domains } from "@/data/skills";
 import { Section } from "../ui/Section";
@@ -28,7 +29,7 @@ const stack = [
 ];
 
 export function About() {
-  const reduce = useReducedMotion();
+  const reduce = useReducedMotionSafe();
 
   return (
     <Section id="about" number="01" label="About" title="Engineer behind the infrastructure">

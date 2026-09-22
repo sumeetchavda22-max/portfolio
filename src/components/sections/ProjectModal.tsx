@@ -1,6 +1,7 @@
 "use client";
 
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
+import { useReducedMotionSafe } from "@/lib/useReducedMotionSafe";
 import { Lock, X } from "lucide-react";
 import { useEffect, useRef } from "react";
 import type { Project } from "@/data/projects";
@@ -12,7 +13,7 @@ type Props = { project: Project | null; onClose: () => void };
 const FOCUSABLE = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
 export function ProjectModal({ project, onClose }: Props) {
-  const reduce = useReducedMotion();
+  const reduce = useReducedMotionSafe();
   const panelRef = useRef<HTMLDivElement>(null);
   const restoreRef = useRef<HTMLElement | null>(null);
 

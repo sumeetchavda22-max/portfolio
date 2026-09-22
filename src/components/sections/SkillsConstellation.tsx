@@ -1,6 +1,7 @@
 "use client";
 
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
+import { useReducedMotionSafe } from "@/lib/useReducedMotionSafe";
 import { ChevronDown } from "lucide-react";
 import { useMemo, useState } from "react";
 import { constellation, skillCategories, type ConstellationGroup } from "@/data/skills";
@@ -66,7 +67,7 @@ export function SkillsConstellation() {
 /* ---------------- Desktop radial ---------------- */
 
 function Radial({ selected, onSelect }: { selected: string; onSelect: (id: string) => void }) {
-  const reduce = useReducedMotion();
+  const reduce = useReducedMotionSafe();
 
   const groups = useMemo(
     () =>

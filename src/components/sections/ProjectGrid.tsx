@@ -1,6 +1,7 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
+import { useReducedMotionSafe } from "@/lib/useReducedMotionSafe";
 import { ArrowUpRight, Building2, Lock } from "lucide-react";
 import { useCallback, useState } from "react";
 import { projects, type Project } from "@/data/projects";
@@ -36,7 +37,7 @@ export function ProjectGrid() {
 }
 
 function ProjectCard({ project, onOpen }: { project: Project; onOpen: () => void }) {
-  const reduce = useReducedMotion();
+  const reduce = useReducedMotionSafe();
   const [hover, setHover] = useState(false);
   const visibleFeatures = project.features.slice(0, 5);
   const more = project.features.length - visibleFeatures.length;

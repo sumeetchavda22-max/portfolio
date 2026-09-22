@@ -1,6 +1,7 @@
 "use client";
 
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
+import { useReducedMotionSafe } from "@/lib/useReducedMotionSafe";
 import { useEffect, useRef, useState } from "react";
 
 /** Fixed background: fine drifting grid + soft ambient gradients. */
@@ -19,7 +20,7 @@ export function GridBackground() {
 /** Ambient glow that lags behind the cursor. Skipped for touch and reduced motion. */
 export function CursorGlow() {
   const ref = useRef<HTMLDivElement>(null);
-  const reduce = useReducedMotion();
+  const reduce = useReducedMotionSafe();
 
   useEffect(() => {
     if (reduce) return;
@@ -67,8 +68,6 @@ export function CursorGlow() {
     };
   }, [reduce]);
 
-  if (reduce) return null;
-
   return (
     <div
       ref={ref}
@@ -84,7 +83,7 @@ export function CursorGlow() {
 
 /** Short boot-style loading overlay, shown once per session. */
 export function Loader() {
-  const reduce = useReducedMotion();
+  const reduce = useReducedMotionSafe();
   const [show, setShow] = useState(false);
 
   useEffect(() => {

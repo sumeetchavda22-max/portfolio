@@ -1,6 +1,7 @@
 "use client";
 
-import { motion, useMotionValue, useReducedMotion, useSpring } from "framer-motion";
+import { motion, useMotionValue, useSpring } from "framer-motion";
+import { useReducedMotionSafe } from "@/lib/useReducedMotionSafe";
 import { useCallback, useRef } from "react";
 import { cn } from "@/lib/utils";
 
@@ -48,7 +49,7 @@ const variants: Record<Variant, string> = {
  */
 export function MagneticButton(props: AnchorProps | ButtonProps) {
   const { variant = "primary", className, children, icon, iconPosition = "right" } = props;
-  const reduce = useReducedMotion();
+  const reduce = useReducedMotionSafe();
   const ref = useRef<HTMLElement | null>(null);
   const x = useMotionValue(0);
   const y = useMotionValue(0);

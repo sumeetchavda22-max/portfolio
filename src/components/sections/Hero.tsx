@@ -1,6 +1,7 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
+import { useReducedMotionSafe } from "@/lib/useReducedMotionSafe";
 import { ArrowRight, Download, MapPin } from "lucide-react";
 import { LinkedinIcon } from "../ui/BrandIcons";
 import { profile } from "@/data/profile";
@@ -11,7 +12,7 @@ import { StatusDot } from "../ui/Chip";
 const ease = [0.22, 1, 0.36, 1] as const;
 
 export function Hero() {
-  const reduce = useReducedMotion();
+  const reduce = useReducedMotionSafe();
   const item = (delay: number) => ({
     initial: reduce ? false : { opacity: 0, y: 18, filter: "blur(6px)" },
     animate: { opacity: 1, y: 0, filter: "blur(0px)" },

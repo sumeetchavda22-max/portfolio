@@ -1,6 +1,7 @@
 "use client";
 
-import { motion, useInView, useReducedMotion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import { useReducedMotionSafe } from "@/lib/useReducedMotionSafe";
 import { useEffect, useRef, useState } from "react";
 import { terminalLines } from "@/data/education";
 import { cn } from "@/lib/utils";
@@ -21,19 +22,24 @@ const TAGS: Record<string, string> = {
  * Nothing here is connected to a live system.
  */
 export function TerminalSection() {
-  const reduce = useReducedMotion();
+  const reduce = useReducedMotionSafe();
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-20% 0px" });
-  const [shown, setShown] = useState(reduce ? terminalLines.length : 0);
+  const [shown, setShown] = useState(0);
 
   useEffect(() => {
-    if (!inView && !reduce) return;
+    if (reduce) {
+      // Reveal everything at once rather than typing it out.
+      const id = window.setTimeout(() => setShown(terminalLines.length), 0);
+      return () => window.clearTimeout(id);
+    }
+    if (!inView) return;
     let i = 0;
     const id = window.setInterval(() => {
       i += 1;
-      setShown(reduce ? terminalLines.length : i);
-      if (i >= terminalLines.length || reduce) window.clearInterval(id);
-    }, reduce ? 0 : 260);
+      setShown(i);
+      if (i >= terminalLines.length) window.clearInterval(id);
+    }, 260);
     return () => window.clearInterval(id);
   }, [inView, reduce]);
 

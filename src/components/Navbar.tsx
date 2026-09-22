@@ -1,6 +1,7 @@
 "use client";
 
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
+import { useReducedMotionSafe } from "@/lib/useReducedMotionSafe";
 import { Download, Menu, Moon, Sun, X } from "lucide-react";
 import { useCallback, useEffect, useState } from "react";
 import { navLinks, profile } from "@/data/profile";
@@ -41,7 +42,7 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState("home");
-  const reduce = useReducedMotion();
+  const reduce = useReducedMotionSafe();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);

@@ -3,11 +3,11 @@
 import {
   motion,
   useMotionValue,
-  useReducedMotion,
   useSpring,
   useTransform,
   type MotionValue,
 } from "framer-motion";
+import { useReducedMotionSafe } from "@/lib/useReducedMotionSafe";
 import {
   Activity,
   Boxes,
@@ -214,7 +214,7 @@ const STATUS = [
 ];
 
 export function InfrastructureVisualization({ className }: { className?: string }) {
-  const reduce = useReducedMotion();
+  const reduce = useReducedMotionSafe();
   const ref = useRef<HTMLDivElement>(null);
   const [hovered, setHovered] = useState<string | null>(null);
 

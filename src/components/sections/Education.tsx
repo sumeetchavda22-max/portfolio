@@ -7,11 +7,11 @@ export function Education() {
   return (
     <Section id="education" number="05" label="Education" title="Education">
       <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-14">
-        <div className="lg:col-span-7">
-          <ol className="space-y-4" role="list">
+        <div className="lg:col-span-5">
+          <ol className="h-full space-y-4" role="list">
             {education.map((e, i) => (
-              <Reveal key={e.degree} as="li" delay={0.06 * i}>
-                <article className="glass border-glow group flex gap-4 rounded-2xl p-5 transition-transform duration-500 hover:-translate-y-0.5 sm:gap-5 sm:p-6">
+              <Reveal key={e.degree} as="li" delay={0.06 * i} className="h-full">
+                <article className="glass border-glow group flex h-full items-center gap-4 rounded-2xl p-5 transition-transform duration-500 hover:-translate-y-0.5 sm:gap-5 sm:p-6">
                   <span className="grid size-11 shrink-0 place-items-center rounded-xl border border-line bg-surface text-accent">
                     <GraduationCap className="size-5" aria-hidden="true" />
                   </span>
@@ -29,7 +29,7 @@ export function Education() {
           </ol>
         </div>
 
-        <div className="lg:col-span-5">
+        <div className="lg:col-span-7">
           <Reveal delay={0.1}>
             <div className="glass rounded-2xl p-5 sm:p-6">
               <div className="mb-4 flex items-center gap-3">

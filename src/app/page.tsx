@@ -42,10 +42,7 @@ const personSchema = {
     "Python",
     "Django",
   ],
-  alumniOf: [
-    { "@type": "CollegeOrUniversity", name: "Gujarat University" },
-    { "@type": "CollegeOrUniversity", name: "C.U. Shah Commerce College" },
-  ],
+  alumniOf: [{ "@type": "CollegeOrUniversity", name: "Gujarat University" }],
 };
 
 export default function Home() {

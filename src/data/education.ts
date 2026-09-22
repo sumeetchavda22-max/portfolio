@@ -5,12 +5,6 @@ export const education = [
     period: "2022 – 2024",
     tag: "POSTGRADUATE",
   },
-  {
-    degree: "Bachelor of Commerce",
-    institution: "C.U. Shah Commerce College, Gujarat University, Ahmedabad",
-    period: "2018 – 2021",
-    tag: "UNDERGRADUATE",
-  },
 ] as const;
 
 export const certifications = [

@@ -69,9 +69,11 @@ Colors are CSS variables on `:root` and `:root[data-theme="dark"]`. Dark is the 
 
 The site is a fully static export (`output: "export"`), so `./out` can be hosted anywhere.
 
-**GitHub Pages** — the included workflow (`.github/workflows/deploy.yml`) builds and publishes on every push to `main`. Enable it under *Settings → Pages → Source: GitHub Actions*. For a project site (`username.github.io/<repo>`), the workflow sets `NEXT_PUBLIC_BASE_PATH` automatically.
+**Vercel** (current target) — import the repository at [vercel.com/new](https://vercel.com/new); the framework, build command and output directory are all detected automatically. No configuration is required.
 
-**Vercel / Netlify** — import the repository; no configuration needed.
+After the first deploy, set `NEXT_PUBLIC_SITE_URL` in *Project Settings → Environment Variables* to your live URL (e.g. `https://sumit-chavda.vercel.app`) and redeploy. That value is used for the canonical link, Open Graph metadata and the JSON-LD `Person` schema.
+
+**Any static host** — run `npm run build` and serve the generated `out/` directory. If the site is served from a subdirectory, build with `NEXT_PUBLIC_BASE_PATH=/<subdir>`.
 
 ## Content policy
 
